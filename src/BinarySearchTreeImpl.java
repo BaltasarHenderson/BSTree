@@ -40,11 +40,17 @@ public class BinarySearchTreeImpl<K extends Comparable<K>, T> implements MyBinar
                 rootArbol = nodoActual;
                 nodoActual = nodoActual.getRightChild();
                 if (nodoActual == null) {
-                    NodoBST nodoNuevo = new NodoBST<>(key, data, null, null);
+                    NodoBST<K, T> nodoNuevo = new NodoBST<K, T>(key, data, null, null);
                     nodoActual = nodoNuevo;
-                    rootArbol = root;
+                    if(root==null){
+                        rootArbol=nodoNuevo;
+                    }
+                    else {
+                        rootArbol = root;
+                    }
                     return;
                 } else {
+                    rootArbol = nodoActual;
                     insert(key, data);
                 }
             }
@@ -56,9 +62,15 @@ public class BinarySearchTreeImpl<K extends Comparable<K>, T> implements MyBinar
                 if (nodoActual == null) {
                     NodoBST<K, T> nodoNuevo = new NodoBST<>(key, data, null, null);
                     nodoActual = nodoNuevo;
-                    rootArbol = root;
+                    if(root==null){
+                        rootArbol=nodoNuevo;
+                    }
+                    else {
+                        rootArbol = root;
+                    }
                     return;
                 } else {
+                    rootArbol = nodoActual;
                     insert(key, data);
                 }
             }
