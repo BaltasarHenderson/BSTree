@@ -33,21 +33,18 @@ public class BinarySearchTreeImpl<K extends Comparable<K>, T> implements MyBinar
         if (root.getKey() == null) { //aca va rootArbol
             NodoBST<K, T> nodoNuevo = new NodoBST<>(key, data, null, null);
             root = nodoNuevo;
+            rootArbol=nodoNuevo;
             System.out.println("Insertado");
             return;
         } else {
             if (key.compareTo(nodoActual.getKey()) > 0) {
-                rootArbol = nodoActual;
-                nodoActual = nodoActual.getRightChild();
-                if (nodoActual == null) {
+                //rootArbol = nodoActual;
+                //nodoActual = nodoActual.getRightChild();
+                if (nodoActual.getRightChild() == null) {
                     NodoBST<K, T> nodoNuevo = new NodoBST<K, T>(key, data, null, null);
-                    nodoActual = nodoNuevo;
-                    if(root==null){
-                        rootArbol=nodoNuevo;
-                    }
-                    else {
-                        rootArbol = root;
-                    }
+                    nodoActual.setRightChild(nodoNuevo);
+                    System.out.println("Insertado");
+                    rootArbol = root;
                     return;
                 } else {
                     rootArbol = nodoActual;
@@ -57,17 +54,13 @@ public class BinarySearchTreeImpl<K extends Comparable<K>, T> implements MyBinar
 
             // pass left subtree as new tree
             else if (key.compareTo(nodoActual.getKey()) < 0) {
-                rootArbol = nodoActual;
-                nodoActual = nodoActual.getLeftChild();
-                if (nodoActual == null) {
+                //rootArbol = nodoActual;
+                //nodoActual = nodoActual.getLeftChild();
+                if (nodoActual.getLeftChild() == null) {
                     NodoBST<K, T> nodoNuevo = new NodoBST<>(key, data, null, null);
-                    nodoActual = nodoNuevo;
-                    if(root==null){
-                        rootArbol=nodoNuevo;
-                    }
-                    else {
-                        rootArbol = root;
-                    }
+                    nodoActual.setLeftChild(nodoNuevo);
+                    System.out.println("Insertado");
+                    rootArbol = root;
                     return;
                 } else {
                     rootArbol = nodoActual;

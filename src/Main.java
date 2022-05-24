@@ -4,5 +4,7 @@ public class Main {
 
         miArbolFacherito.insert(5,"Mesi");
         miArbolFacherito.insert(6,"Luis");
+        miArbolFacherito.insert(4,"Lewan");
+        System.out.println("listo");
     }
 }
