@@ -1,4 +1,4 @@
-public class BinarySearchTreeImpl<K extends Comparable, T> implements MyBinarySearchTree<K, T> {
+public class BinarySearchTreeImpl<K extends Comparable<K>, T> implements MyBinarySearchTree<K, T> {
 
     NodoBST root = new NodoBST(null, null, null, null);
 
@@ -29,10 +29,11 @@ public class BinarySearchTreeImpl<K extends Comparable, T> implements MyBinarySe
 
     @Override
     public void insert(K key, T data) {
-        NodoBST nodoActual = rootArbol;
-        if (root == null) { //aca va rootArbol
-            NodoBST nodoNuevo = new NodoBST<>(key, data, null, null);
+        NodoBST<K, T> nodoActual = rootArbol;
+        if (root.getKey() == null) { //aca va rootArbol
+            NodoBST<K, T> nodoNuevo = new NodoBST<>(key, data, null, null);
             root = nodoNuevo;
+            System.out.println("Insertado");
             return;
         } else {
             if (key.compareTo(nodoActual.getKey()) > 0) {
@@ -53,7 +54,7 @@ public class BinarySearchTreeImpl<K extends Comparable, T> implements MyBinarySe
                 rootArbol = nodoActual;
                 nodoActual = nodoActual.getLeftChild();
                 if (nodoActual == null) {
-                    NodoBST nodoNuevo = new NodoBST<>(key, data, null, null);
+                    NodoBST<K, T> nodoNuevo = new NodoBST<>(key, data, null, null);
                     nodoActual = nodoNuevo;
                     rootArbol = root;
                     return;
@@ -69,8 +70,4 @@ public class BinarySearchTreeImpl<K extends Comparable, T> implements MyBinarySe
 
     }
 
-    @Override
-    public int compareTo(K o) {
-        return 0;
-    }
 }
