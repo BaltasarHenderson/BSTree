@@ -47,7 +47,7 @@ public class BinarySearchTreeImpl<K extends Comparable<K>, T> implements MyBinar
                     rootArbol = root;
                     return;
                 } else {
-                    rootArbol = nodoActual;
+                    rootArbol = nodoActual.getRightChild();
                     insert(key, data);
                 }
             }
@@ -63,7 +63,7 @@ public class BinarySearchTreeImpl<K extends Comparable<K>, T> implements MyBinar
                     rootArbol = root;
                     return;
                 } else {
-                    rootArbol = nodoActual;
+                    rootArbol = nodoActual.getLeftChild();
                     insert(key, data);
                 }
             }
