@@ -9,7 +9,7 @@ public class Main {
         miArbolFacherito.insert(9,"nueve");
         miArbolFacherito.insert(5,"cinco");
         miArbolFacherito.insert(3,"tres");
-
+        //prueba push
 
         System.out.println("listo");
     }
